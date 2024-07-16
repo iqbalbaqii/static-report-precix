@@ -1,6 +1,3 @@
-@php
-    $today = date("d/m/y H:i:s")
-@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -704,9 +701,9 @@
     <header class="p-2" style="margin: -2cm -2.5cm 0cm;background-color:#ffffff;">
       <div class="row">
         <div class="col col-3 text-center mt-1" style="margin-left: .5cm">
-          <div style="padding: 7px; border: 1px solid black; font-size: 90%">
+          <div style="padding: 7px; border: 1px solid black">
             <p class="no-indent" style="border-bottom: 1px solid black">Dokumen Terbatas</p>
-            <small>Diunduh pada: {{ $today }}</small>
+            <small>Diunduh pada: 14/06/2024</small>
           </div>
         </div>
         <div class="col col-2 float-right text-center">
@@ -839,7 +836,7 @@
       <div class="col col-3 ml-4 text-center float-right">
         <div style="padding: 3px; border: 1px solid black">
           <p class="no-indent" style="border-bottom: 1px solid black">Dokumen Terbatas</p>
-          <small>Diunduh pada: {{ $today }}</small>
+          <small>Diunduh pada: 14/06/2024</small>
         </div>
       </div>
     </div>

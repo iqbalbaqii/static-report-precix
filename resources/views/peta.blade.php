@@ -526,7 +526,7 @@
     }
 
     h2 {
-      font-size: 1.8em;
+      font-size: 1.5em;
       padding: 0;
       margin: 0;
       margin-bottom: 1em;
@@ -641,31 +641,13 @@
       padding: 7px;
 
     }
-
-    .header {
-      position: fixed;
-      margin: -2cm -2cm 0;
-      top: 0cm;
-      left: 0cm;
-      right: 0cm;
-    }
-
-    /** Define the footer rules **/
-    .footer {
-      font-size: 14px;
-      margin: 0cm -2cm -2cm;
-      position: fixed;
-      bottom: 0cm;
-      left: 0cm;
-      right: 0cm;
-    }
   </style>
 
 
   <!--  -->
   <style>
     @page {
-      margin: .2cm !important;
+      margin: 0cm !important;
       size: A4 landscape !important;
     }
 
@@ -674,10 +656,27 @@
     }
 
     body {
-      width: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100vw;
+      height: 100vh;
+      padding-top: 1.5cm !important;
+      padding-bottom: 30px !important;
+
+    }
+
+    .map-container {
+      font-size: 12px;
+      width: 90vh;
+      height: 100vh;
+      padding: 10px;
       margin-right: auto;
       margin-left: auto;
+      margin-top: -57px;
+      margin-bottom: -37px;
+
     }
+
+
 
     main {
       padding: 0;
@@ -703,319 +702,424 @@
       margin-right: 10px;
       display: inline-block;
     }
+
+    header {
+      position: fixed;
+      margin: -2cm -2cm 0;
+      top: 0cm;
+      left: 0cm;
+      right: 0cm;
+    }
+
+    /** Define the footer rules **/
+    footer {
+      font-size: 12px;
+      position: fixed;
+      bottom: .3cm;
+      left: 0cm;
+      right: 0cm;
+    }
   </style>
 
 </head>
 
 <body>
-  <!-- Cover -->
-  <main class="">
-    <div class="page border p-5" style="
-      font-size: 14px;
-      line-height: 24px;
-      height: 94.5%;">
-      <div class="row">
-        <div class="col col-8 h-100" style="width: 70%;">
-          <img src="{{ public_path('img/sample2.jpg') }}" alt="" style="width: 100%; height: 100%">
+  <footer>
+    <div class="row">
+      <div class="col col-2 ml-4 text-center">
+        <div style="padding: 2px; border: 1px solid black; background-color: #fff; color: black">
+          <p class="no-indent" style="border-bottom: 1px solid black">Dokumen Terbatas</p>
+          <small>Diunduh pada: {{ $today }}</small>
         </div>
-        <div class="col col-3 float-right border h-100" style="width: 27.333%;">
-          <div class="text-center"
-            style="position: relative; border-bottom: 1px solid black; height: 33%; width: 100%;">
-            <h3 class="text-center" style="line-height: 26px">
-              PETA PETAK SAWAH SUBAK UMADESA
-            </h3>
-            <img src="{{ public_path('img/north.png') }}" alt="" style="width: 20%; margin-top: 0px"
-              class="text-center">
-            <p class="no-indent mt-2">Skala 1:1.900</p>
+      </div>
+    </div>
+  </footer>
+  <div>
 
-            <div class="text-left" style="width: 60%;margin: 0 auto;">
-              <small>0</small>
-              <small style="margin-left: 35%">0,04</small>
-              <small class="float-right">0,08</small>
+    {{-- Lahan --}}
+    <div class="page">
+      <div class="map-container">
+        <div class="p-2 border">
+          <div class="row">
+            <div class="col col-8 h-100" style="width: 70%;">
+              <img src="{{ public_path('img/sample2.jpg') }}" alt="" style="width: 100%; height: 100%">
             </div>
-            <div style=" border: 1px solid black; width: 60%; margin: 0 auto; height: 7px">
-              <div style="height: 100%; width: 50%; background-color: black;"></div>
-            </div>
-            <span class="m-0 p-0"
-              style="position: absolute; left: 79%; top:59%; font-size: 9px; color:transparent">Critical level</span>
-          </div>
-          <div
-            style="position: relative; vertical-align: middle; border-bottom: 1px solid black; height: 33%; width: 100%;">
-            <div class="p-3">
-              <h3>Legenda</h3>
-              <div>
-                <div class="color-box" style="border: 2px solid red; vertical-align: middle"></div> <span
-                  style="vertical-align: middle">Batas Sawah</span>
+            <div class="col col-3 border float-right">
+              <div class="text-center"
+                style="position: relative; border-bottom: 1px solid black; height: 33%; width: 100%;">
+                <h2 class="text-center" style="line-height: 26px">
+                  PETA PETAK SAWAH SUBAK UMADESA
+                </h2>
+                <div class="my-5"></div>
+                <img src="{{ public_path('img/north.png') }}" alt="" style="width: 20%; margin-top: 0px"
+                  class="text-center">
+                <p class="no-indent mt-2">Skala 1:1.900</p>
+
+                <div class="text-left" style="width: 60%;margin: 0 auto;">
+                  <small>0</small>
+                  <small style="margin-left: 35%">0,04</small>
+                  <small class="float-right">0,08</small>
+                </div>
+                <div style=" border: 1px solid black; width: 60%; margin: 0 auto; height: 7px">
+                  <div style="height: 100%; width: 50%; background-color: black;"></div>
+                </div>
+
               </div>
-              <h3>Sebaran Unsur {P} (%)</h3>
-              <ul class="p-0 mt-0" style="list-style: none; line-height: 20px">
-                <li>
-                  <div class="color-box" style="background-color: #2892c6; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">-0,15 - 0,11</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #a1c19c; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,12 - 0,14</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #fafa62; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,15 - 0,16</span>
-                </li>
-                <hr class="mt-0 p-0" style="margin-left: 0px; border: 1px solid black;">
-                <span class="m-0 p-0" style="position: absolute; left: 79%; top:59%; font-size: 9px">Critical
-                  level</span>
-                <li>
-                  <div class="color-box" style="background-color: #fa8c33; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,12 - 0,14</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #e90e16; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,15 - 0,16</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="p-1" style="position: relative; height: 32%; line-height: 18px">
-            <p class="no-indent">Sumber: Foto Udara Bali</p>
-            <p class="no-indent">Pupuk Indonesia</p>
-            <div class="mt-2 text-center">
-              <img src="{{ public_path('img/sample1.png') }}" alt="" style="width: 275px; max-height: 150px;"
-                class="text-center">
-            </div>
+              <div
+                style="position: relative; vertical-align: middle; border-bottom: 1px solid black; height: 33%; width: 100%;">
+                <div class="p-3">
+                  <h3>Legenda</h3>
+                  <div>
+                    <div class="color-box" style="border: 2px solid red; vertical-align: middle"></div> <span
+                      style="vertical-align: middle">Batas Sawah</span>
+                  </div>
+                  <h3>Sebaran Unsur {P} (%)</h3>
+                  <ul class="p-0 mt-0" style="list-style: none; line-height: 20px">
+                    <li>
+                      <div class="color-box" style="background-color: #2892c6; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">-0,15 - 0,11</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #a1c19c; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,12 - 0,14</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #fafa62; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,15 - 0,16</span>
+                    </li>
+                    <hr class="mt-0 p-0" style="margin-left: 0px; border: 1px solid black;">
+                    <span class="m-0 p-0" style="position: absolute; left: 76%; top:48%; font-size: 9px">Critical
+                      level</span>
+                    <li>
+                      <div class="color-box" style="background-color: #fa8c33; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,12 - 0,14</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #e90e16; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,15 - 0,16</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-1" style="position: relative; height: 32%; line-height: 18px">
+                <p class="no-indent">Sumber: Foto Udara Bali</p>
+                <p class="no-indent">Pupuk Indonesia</p>
+                <div class="mt-2 text-center">
+                  <img src="{{ public_path('img/sample1.png') }}" alt=""
+                    style="width: 265px; max-height: 150px;" class="text-center">
+                </div>
 
-            <div
-              style="
-                position: absolute;
-                bottom: 0;
-                margin-bottom: 0;
-                ">
-              <div class="text-center">
-                <img style="margin: 0" src="{{ public_path('img/bumn.png') }}" alt="" style="width: 30%">
-                <img style="margin: 0" src="{{ public_path('img/pi.png') }}" alt="" style="width: 20%">
-                <img style="margin: 0" src="{{ public_path('img/ifri-white.png') }}" alt="" style="width: 20%">
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0;
+                    margin-bottom: 0;
+                    ">
+                  <div class="text-center">
+                    <img style="margin: 0" src="{{ public_path('img/bumn.png') }}" alt="" style="width: 30%">
+                    <img style="margin: 0" src="{{ public_path('img/pi.png') }}" alt="" style="width: 20%">
+                    <img style="margin: 0" src="{{ public_path('img/ifri-white.png') }}" alt=""
+                      style="width: 20%">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="page border p-5" style="
-      font-size: 14px;
-      line-height: 24px;
-      height: 94.5%;">
-      <div class="row">
-        <div class="col col-8 h-100" style="width: 70%;">
-          <img src="{{ public_path('img/sample2.jpg') }}" alt="" style="width: 100%; height: 100%">
-        </div>
-        <div class="col col-3 float-right border h-100" style="width: 27.333%;">
-          <div class="text-center"
-            style="position: relative; border-bottom: 1px solid black; height: 33%; width: 100%;">
-            <h3 class="text-center" style="line-height: 26px">
-              PETA PETAK SAWAH SUBAK UMADESA
-            </h3>
-            <img src="{{ public_path('img/north.png') }}" alt="" style="width: 20%; margin-top: 0px"
-              class="text-center">
-            <p class="no-indent mt-2">Skala 1:1.900</p>
 
-            <div class="text-left" style="width: 60%;margin: 0 auto;">
-              <small>0</small>
-              <small style="margin-left: 35%">0,04</small>
-              <small class="float-right">0,08</small>
-            </div>
-            <div style=" border: 1px solid black; width: 60%; margin: 0 auto; height: 7px">
-              <div style="height: 100%; width: 50%; background-color: black;"></div>
-            </div>
-            <span class="m-0 p-0"
-              style="position: absolute; left: 79%; top:59%; font-size: 9px; color:transparent">Critical level</span>
-          </div>
-          <div
-            style="position: relative; vertical-align: middle; border-bottom: 1px solid black; height: 33%; width: 100%;">
-            <div class="p-3">
-              <h3>Legenda</h3>
-              <div>
-                <div class="color-box" style="border: 2px solid red; vertical-align: middle"></div> <span
-                  style="vertical-align: middle">Batas Sawah</span>
-              </div>
-              <h3>Sebaran Unsur {P} (%)</h3>
-              <ul class="p-0 mt-0" style="list-style: none; line-height: 20px">
-                <li>
-                  <div class="color-box" style="background-color: #2892c6; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">-0,15 - 0,11</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #a1c19c; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,12 - 0,14</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #fafa62; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,15 - 0,16</span>
-                </li>
-                <hr class="mt-0 p-0" style="margin-left: 0px; border: 1px solid black;">
-                <span class="m-0 p-0" style="position: absolute; left: 79%; top:59%; font-size: 9px">Critical
-                  level</span>
-                <li>
-                  <div class="color-box" style="background-color: #fa8c33; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,12 - 0,14</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #e90e16; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,15 - 0,16</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="p-1" style="position: relative; height: 32%; line-height: 18px">
-            <p class="no-indent">Sumber: Foto Udara Bali</p>
-            <p class="no-indent">Pupuk Indonesia</p>
-            <div class="mt-2 text-center">
-              <img src="{{ public_path('img/sample1.png') }}" alt="" style="width: 275px; max-height: 150px;"
-                class="text-center">
-            </div>
 
-            <div
-              style="
-                position: absolute;
-                bottom: 0;
-                margin-bottom: 0;
-                ">
-              <div class="text-center">
-                <img style="margin: 0" src="{{ public_path('img/bumn.png') }}" alt="" style="width: 30%">
-                <img style="margin: 0" src="{{ public_path('img/pi.png') }}" alt="" style="width: 20%">
-                <img style="margin: 0" src="{{ public_path('img/ifri-white.png') }}" alt=""
-                  style="width: 20%">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <div class="page border p-5" style="
-      font-size: 14px;
-      line-height: 24px;
-      height: 94.5%;">
-      <div class="row">
-        <div class="col col-8 h-100" style="width: 70%;">
-          <img src="{{ public_path('img/sample2.jpg') }}" alt="" style="width: 100%; height: 100%">
-        </div>
-        <div class="col col-3 float-right border h-100" style="width: 27.333%;">
-          <div class="text-center"
-            style="position: relative; border-bottom: 1px solid black; height: 33%; width: 100%;">
-            <h3 class="text-center" style="line-height: 26px">
-              PETA PETAK SAWAH SUBAK UMADESA
-            </h3>
-            <img src="{{ public_path('img/north.png') }}" alt="" style="width: 20%; margin-top: 0px"
-              class="text-center">
-            <p class="no-indent mt-2">Skala 1:1.900</p>
+    {{-- Unsur N --}}
+    <div class="page">
+      <div class="map-container">
+        <div class="p-2 border">
+          <div class="row">
+            <div class="col col-8 h-100" style="width: 70%;">
+              <img src="{{ public_path('img/sample2.jpg') }}" alt="" style="width: 100%; height: 100%">
+            </div>
+            <div class="col col-3 border float-right">
+              <div class="text-center"
+                style="position: relative; border-bottom: 1px solid black; height: 33%; width: 100%;">
+                <h2 class="text-center" style="line-height: 26px">
+                  PETA PETAK SAWAH SUBAK UMADESA
+                </h2>
+                <div class="my-5"></div>
+                <img src="{{ public_path('img/north.png') }}" alt="" style="width: 20%; margin-top: 0px"
+                  class="text-center">
+                <p class="no-indent mt-2">Skala 1:1.900</p>
 
-            <div class="text-left" style="width: 60%;margin: 0 auto;">
-              <small>0</small>
-              <small style="margin-left: 35%">0,04</small>
-              <small class="float-right">0,08</small>
-            </div>
-            <div style=" border: 1px solid black; width: 60%; margin: 0 auto; height: 7px">
-              <div style="height: 100%; width: 50%; background-color: black;"></div>
-            </div>
-            <span class="m-0 p-0"
-              style="position: absolute; left: 79%; top:59%; font-size: 9px; color:transparent">Critical level</span>
-          </div>
-          <div
-            style="position: relative; vertical-align: middle; border-bottom: 1px solid black; height: 33%; width: 100%;">
-            <div class="p-3">
-              <h3>Legenda</h3>
-              <div>
-                <div class="color-box" style="border: 2px solid red; vertical-align: middle"></div> <span
-                  style="vertical-align: middle">Batas Sawah</span>
+                <div class="text-left" style="width: 60%;margin: 0 auto;">
+                  <small>0</small>
+                  <small style="margin-left: 35%">0,04</small>
+                  <small class="float-right">0,08</small>
+                </div>
+                <div style=" border: 1px solid black; width: 60%; margin: 0 auto; height: 7px">
+                  <div style="height: 100%; width: 50%; background-color: black;"></div>
+                </div>
+
               </div>
-              <h3>Sebaran Unsur {P} (%)</h3>
-              <ul class="p-0 mt-0" style="list-style: none; line-height: 20px">
-                <li>
-                  <div class="color-box" style="background-color: #2892c6; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">-0,15 - 0,11</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #a1c19c; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,12 - 0,14</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #fafa62; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,15 - 0,16</span>
-                </li>
-                <hr class="mt-0 p-0" style="margin-left: 0px; border: 1px solid black;">
-                <span class="m-0 p-0" style="position: absolute; left: 79%; top:59%; font-size: 9px">Critical
-                  level</span>
-                <li>
-                  <div class="color-box" style="background-color: #fa8c33; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,12 - 0,14</span>
-                </li>
-                <li>
-                  <div class="color-box" style="background-color: #e90e16; vertical-align: middle"></div> <span
-                    class="" style="vertical-align: middle">0,15 - 0,16</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="p-1" style="position: relative; height: 32%; line-height: 18px">
-            <p class="no-indent">Sumber: Foto Udara Bali</p>
-            <p class="no-indent">Pupuk Indonesia</p>
-            <div class="mt-2 text-center">
-              <img src="{{ public_path('img/sample1.png') }}" alt=""
-                style="width: 275px; max-height: 150px;" class="text-center">
-            </div>
+              <div
+                style="position: relative; vertical-align: middle; border-bottom: 1px solid black; height: 33%; width: 100%;">
+                <div class="p-3">
+                  <h3>Legenda</h3>
+                  <div>
+                    <div class="color-box" style="border: 2px solid red; vertical-align: middle"></div> <span
+                      style="vertical-align: middle">Batas Sawah</span>
+                  </div>
+                  <h3>Sebaran Unsur {P} (%)</h3>
+                  <ul class="p-0 mt-0" style="list-style: none; line-height: 20px">
+                    <li>
+                      <div class="color-box" style="background-color: #2892c6; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">-0,15 - 0,11</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #a1c19c; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,12 - 0,14</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #fafa62; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,15 - 0,16</span>
+                    </li>
+                    <hr class="mt-0 p-0" style="margin-left: 0px; border: 1px solid black;">
+                    <span class="m-0 p-0" style="position: absolute; left: 76%; top:48%; font-size: 9px">Critical
+                      level</span>
+                    <li>
+                      <div class="color-box" style="background-color: #fa8c33; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,12 - 0,14</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #e90e16; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,15 - 0,16</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-1" style="position: relative; height: 32%; line-height: 18px">
+                <p class="no-indent">Sumber: Foto Udara Bali</p>
+                <p class="no-indent">Pupuk Indonesia</p>
+                <div class="mt-2 text-center">
+                  <img src="{{ public_path('img/sample1.png') }}" alt=""
+                    style="width: 265px; max-height: 150px;" class="text-center">
+                </div>
 
-            <div
-              style="
-                position: absolute;
-                bottom: 0;
-                margin-bottom: 0;
-                ">
-              <div class="text-center">
-                <img style="margin: 0" src="{{ public_path('img/bumn.png') }}" alt="" style="width: 30%">
-                <img style="margin: 0" src="{{ public_path('img/pi.png') }}" alt="" style="width: 20%">
-                <img style="margin: 0" src="{{ public_path('img/ifri-white.png') }}" alt=""
-                  style="width: 20%">
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0;
+                    margin-bottom: 0;
+                    ">
+                  <div class="text-center">
+                    <img style="margin: 0" src="{{ public_path('img/bumn.png') }}" alt=""
+                      style="width: 30%">
+                    <img style="margin: 0" src="{{ public_path('img/pi.png') }}" alt="" style="width: 20%">
+                    <img style="margin: 0" src="{{ public_path('img/ifri-white.png') }}" alt=""
+                      style="width: 20%">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
     </div>
 
-
-
-    <div>
-      <div class="header"></div>
-      <div class="footer p-5">
-
-        <div class="row">
-          <div class="col col-3" style="vertical-align: middle;">
-            <img src="{{ public_path('img/precix.png') }}" alt="" style="width: 70%">
-          </div>
-          <div class="col col-7" style="border-left: 2px solid black;">
-            <p>Jl.Kemanggisan No.1 Jakarta Barat 75313</p>
-            <p>DKI Jakarta</p>
-          </div>
-          <div class="col col-3 ml-4 text-center float-right">
-            <div style="padding: 3px; border: 1px solid black">
-              <p class="no-indent" style="border-bottom: 1px solid black">Dokumen Terbatas</p>
-              <small>Diunduh pada: {{ $today }}</small>
+    {{-- Unsur P --}}
+    <div class="page">
+      <div class="map-container">
+        <div class="p-2 border">
+          <div class="row">
+            <div class="col col-8 h-100" style="width: 70%;">
+              <img src="{{ public_path('img/sample2.jpg') }}" alt="" style="width: 100%; height: 100%">
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="row mt-2 p-2" style="background-color: #4f81bd; color: white;">
-            <div class="col col-6">
-              <a href="https://www.pupuk-indonesia.com"
-                style="text-decoration: none; color: white;">https://www.pupuk-indonesia.com</a>
-            </div>
-            <div class="col col-6 text-right">
-              Phone : 082256316947
+            <div class="col col-3 border float-right">
+              <div class="text-center"
+                style="position: relative; border-bottom: 1px solid black; height: 33%; width: 100%;">
+                <h2 class="text-center" style="line-height: 26px">
+                  PETA PETAK SAWAH SUBAK UMADESA
+                </h2>
+                <div class="my-5"></div>
+                <img src="{{ public_path('img/north.png') }}" alt="" style="width: 20%; margin-top: 0px"
+                  class="text-center">
+                <p class="no-indent mt-2">Skala 1:1.900</p>
+
+                <div class="text-left" style="width: 60%;margin: 0 auto;">
+                  <small>0</small>
+                  <small style="margin-left: 35%">0,04</small>
+                  <small class="float-right">0,08</small>
+                </div>
+                <div style=" border: 1px solid black; width: 60%; margin: 0 auto; height: 7px">
+                  <div style="height: 100%; width: 50%; background-color: black;"></div>
+                </div>
+
+              </div>
+              <div
+                style="position: relative; vertical-align: middle; border-bottom: 1px solid black; height: 33%; width: 100%;">
+                <div class="p-3">
+                  <h3>Legenda</h3>
+                  <div>
+                    <div class="color-box" style="border: 2px solid red; vertical-align: middle"></div> <span
+                      style="vertical-align: middle">Batas Sawah</span>
+                  </div>
+                  <h3>Sebaran Unsur {P} (%)</h3>
+                  <ul class="p-0 mt-0" style="list-style: none; line-height: 20px">
+                    <li>
+                      <div class="color-box" style="background-color: #2892c6; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">-0,15 - 0,11</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #a1c19c; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,12 - 0,14</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #fafa62; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,15 - 0,16</span>
+                    </li>
+                    <hr class="mt-0 p-0" style="margin-left: 0px; border: 1px solid black;">
+                    <span class="m-0 p-0" style="position: absolute; left: 76%; top:48%; font-size: 9px">Critical
+                      level</span>
+                    <li>
+                      <div class="color-box" style="background-color: #fa8c33; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,12 - 0,14</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #e90e16; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,15 - 0,16</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-1" style="position: relative; height: 32%; line-height: 18px">
+                <p class="no-indent">Sumber: Foto Udara Bali</p>
+                <p class="no-indent">Pupuk Indonesia</p>
+                <div class="mt-2 text-center">
+                  <img src="{{ public_path('img/sample1.png') }}" alt=""
+                    style="width: 265px; max-height: 150px;" class="text-center">
+                </div>
+
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0;
+                    margin-bottom: 0;
+                    ">
+                  <div class="text-center">
+                    <img style="margin: 0" src="{{ public_path('img/bumn.png') }}" alt=""
+                      style="width: 30%">
+                    <img style="margin: 0" src="{{ public_path('img/pi.png') }}" alt="" style="width: 20%">
+                    <img style="margin: 0" src="{{ public_path('img/ifri-white.png') }}" alt=""
+                      style="width: 20%">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+
     </div>
-  </main>
+
+    {{-- Unsur K --}}
+    <div class="">
+      <div class="map-container">
+        <div class="p-2 border">
+          <div class="row">
+            <div class="col col-8 h-100" style="width: 70%;">
+              <img src="{{ public_path('img/sample2.jpg') }}" alt="" style="width: 100%; height: 100%">
+            </div>
+            <div class="col col-3 border float-right">
+              <div class="text-center"
+                style="position: relative; border-bottom: 1px solid black; height: 33%; width: 100%;">
+                <h2 class="text-center" style="line-height: 26px">
+                  PETA PETAK SAWAH SUBAK UMADESA
+                </h2>
+                <div class="my-5"></div>
+                <img src="{{ public_path('img/north.png') }}" alt="" style="width: 20%; margin-top: 0px"
+                  class="text-center">
+                <p class="no-indent mt-2">Skala 1:1.900</p>
+
+                <div class="text-left" style="width: 60%;margin: 0 auto;">
+                  <small>0</small>
+                  <small style="margin-left: 35%">0,04</small>
+                  <small class="float-right">0,08</small>
+                </div>
+                <div style=" border: 1px solid black; width: 60%; margin: 0 auto; height: 7px">
+                  <div style="height: 100%; width: 50%; background-color: black;"></div>
+                </div>
+
+              </div>
+              <div
+                style="position: relative; vertical-align: middle; border-bottom: 1px solid black; height: 33%; width: 100%;">
+                <div class="p-3">
+                  <h3>Legenda</h3>
+                  <div>
+                    <div class="color-box" style="border: 2px solid red; vertical-align: middle"></div> <span
+                      style="vertical-align: middle">Batas Sawah</span>
+                  </div>
+                  <h3>Sebaran Unsur {P} (%)</h3>
+                  <ul class="p-0 mt-0" style="list-style: none; line-height: 20px">
+                    <li>
+                      <div class="color-box" style="background-color: #2892c6; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">-0,15 - 0,11</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #a1c19c; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,12 - 0,14</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #fafa62; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,15 - 0,16</span>
+                    </li>
+                    <hr class="mt-0 p-0" style="margin-left: 0px; border: 1px solid black;">
+                    <span class="m-0 p-0" style="position: absolute; left: 76%; top:48%; font-size: 9px">Critical
+                      level</span>
+                    <li>
+                      <div class="color-box" style="background-color: #fa8c33; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,12 - 0,14</span>
+                    </li>
+                    <li>
+                      <div class="color-box" style="background-color: #e90e16; vertical-align: middle"></div> <span
+                        class="" style="vertical-align: middle">0,15 - 0,16</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-1" style="position: relative; height: 32%; line-height: 18px">
+                <p class="no-indent">Sumber: Foto Udara Bali</p>
+                <p class="no-indent">Pupuk Indonesia</p>
+                <div class="mt-2 text-center">
+                  <img src="{{ public_path('img/sample1.png') }}" alt=""
+                    style="width: 265px; max-height: 150px;" class="text-center">
+                </div>
+
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0;
+                    margin-bottom: 0;
+                    ">
+                  <div class="text-center">
+                    <img style="margin: 0" src="{{ public_path('img/bumn.png') }}" alt=""
+                      style="width: 30%">
+                    <img style="margin: 0" src="{{ public_path('img/pi.png') }}" alt="" style="width: 20%">
+                    <img style="margin: 0" src="{{ public_path('img/ifri-white.png') }}" alt=""
+                      style="width: 20%">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
 </body>
 
 </html>
